@@ -1,26 +1,20 @@
 let scene, camera, renderer, controls;
 
 function init() {
-    // Crear la escena
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xf0f0f0);
 
-    // Configurar la cámara
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 5;
 
-    // Configurar el renderizador
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    // Agregar controles de órbita
-    // Cambio clave: usar OrbitControls del objeto global
     controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.25;
 
-    // Agregar luces
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
 
@@ -43,7 +37,6 @@ function init() {
         }
     );
 
-    // Manejar el redimensionamiento de la ventana
     window.addEventListener('resize', onWindowResize, false);
 }
 
