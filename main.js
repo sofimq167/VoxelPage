@@ -15,8 +15,8 @@ function init() {
     document.body.appendChild(renderer.domElement);
 
     // Agregar controles de órbita
-    // Cambio importante: usar OrbitControls como estaba en ejemplos anteriores
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    // Cambio clave: usar OrbitControls del objeto global
+    controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.25;
 
